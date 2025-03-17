@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTK·浩然</title>
+    <link rel="icon" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <!-- 网站主体，我用flex box来设计的，整体为 column排列 -->
+  <body>
+    <!-- 导航栏 -->
+    <header class="flex topBar base shadow">
+      <!-- profile picture + logo -->
+      <div
+        class="flex home"
+        style="justify-content: flex-start; align-items: center"
+      >
+        <a class="nav mgr8 mgl8" href="index.html"><b>HAORAN GAO </b></a>
+        <a href="index.html"
+          ><img
+            class="topIcon flex1"
+            src="assets/images/logos/Orange.png"
+            alt="HaoranGao Logo"
+        /></a>
+      </div>
+      <!-- Navigation links -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a class="nav mgl8 mgr8" href="index.html">Home</a>
+        <a class="nav mgl8 mgr8" href="about.html">About</a>
+        <a class="nav mgl8 mgr8" href="project.html">Projects</a>
+        <a class="nav mgl8 mgr8" href="portfolio.html">Gallery</a>
+        <a class="nav mgl8 mgr8" onclick="location.href='#contact'">Contact</a>
+      </div>
+    </header>
+
+    <!-- 内容 -->
+    <div class="flex1 content column" style="margin: 10px 50px 10px 50px">
+      <!--横向列表-->
+      <div class="flex column">
+        <div
+          style="
+            height: 560px;
+            margin-left: 100px auto;
+            margin-right: 100px auto;
+          "
+          class="base display yinYing mgt8"
+        ></div>
+        <div
+          style="
+            height: 160px;
+            margin-left: 100px auto;
+            margin-right: 100px auto;
+          "
+          class="base display yinYing mgt8"
+        ></div>
+      </div>
+    </div>
+
+    <!-- bottom display area -->
+    <section
+      class="flex1 flex footer base shadow"
+      style="border-radius: 0; height: 100px; justify-content: center"
+      id="contact"
+    >
+      <!-- 底部栏中间区 -->
+      <div
+        class="flex column"
+        style="justify-content: center; align-items: center"
+      >
+        <div class="flex" style="align-self: center; margin-bottom: 10px">
+          <b style="font-size: 15px"
+            >Thank you for visiting. Please feel free to connect via:</b
+          >
+        </div>
+        <!-- profile picture + logo -->
+        <div
+          class="flex"
+          style="justify-content: center; align-items: center; margin: 10px"
+        >
+          <a
+            style="display: inline-block"
+            href="https://www.linkedin.com/in/harrisongao/"
+            target="_blank"
+          >
+            <img
+              class="flex topIcon"
+              style="width: 25px; align-self: center; margin: 3px"
+              src="assets/images/icons/linkedin.png"
+              alt="a"
+            />
+          </a>
+          <a
+            style="display: inline-block"
+            href="https://github.com/HTK-G"
+            target="_blank"
+          >
+            <img
+              class="flex topIcon"
+              style="width: 25px; align-self: center; margin: 3px"
+              src="assets/images/icons/github.png"
+              alt="a"
+            />
+          </a>
+          <a style="display: inline-block" href="mailto:hg2655@nyu.edu"
+            ><img
+              class="flex topIcon"
+              style="width: 25px; align-self: center; margin: 3px"
+              src="assets/images/icons/email.svg"
+              alt="email"
+          /></a>
+        </div>
+        <div><i>Copyright ©2024 HaoranGao</i></div>
+      </div>
+    </section>
+
+    <!-- Add this script at the end of the body tag -->
+  </body>
+</html>

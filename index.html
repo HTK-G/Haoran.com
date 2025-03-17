@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore the portfolio of Haoran Gao, a designer, developer, and artist with a passion for innovation and creativity."
+    />
+    <meta
+      name="keywords"
+      content="Haoran Gao, Web Design, Developer, Portfolio, Art, Technology"
+    />
+    <meta name="author" content="Harrison Gao" />
+    <meta name="robots" content="index, follow" />
+    <!-- Tells Google to index this page -->
+    <title>HTK·浩然</title>
+    <link rel="icon" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="js/script.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Haoran Gao",
+        "jobTitle": "Web Developer & Designer",
+        "url": "https://yourwebsite.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/harrisongao/",
+          "https://github.com/HTK-G"
+        ]
+      }
+    </script>
+  </head>
+
+  <!-- 网站主体，我用flex box来设计的，整体为 column排列 -->
+  <body>
+    <!-- 导航栏 -->
+    <header class="flex topBar base shadow">
+      <!-- profile picture + logo -->
+      <div
+        class="flex home"
+        style="justify-content: flex-start; align-items: center"
+      >
+        <a class="nav mgr8 mgl8" href="index.html"><b>HAORAN GAO </b></a>
+        <a href="index.html"
+          ><img
+            class="topIcon flex1"
+            src="assets/images/logos/Navy.png"
+            alt="HaoranGao Logo"
+        /></a>
+      </div>
+      <!-- Navigation links -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a class="nav mgl8 mgr8" href="index.html">Home</a>
+        <!-- <a class="nav mgl8 mgr8" href="about.html">About</a> -->
+        <a class="nav mgl8 mgr8" href="gallery.html">Gallery</a>
+        <a class="nav mgl8 mgr8" href="project.html">Projects</a>
+        <a class="nav mgl8 mgr8" onclick="location.href='#contact'">Contact</a>
+      </div>
+    </header>
+
+    <!-- 主内容 -->
+    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
+      <!--横向列表-->
+      <!-- Profile -->
+      <div class="content-wrapper">
+        <div class="profile-box" style="margin: 10px 10px; align-items: center">
+          <img
+            src="assets/images/profile_pictures/profileWarm.jpeg"
+            alt="Harrison's Handsome Profile Photo"
+            style=""
+            loading="lazy"
+          />
+
+          <div
+            class="text-box contentBase display shadow mgt8"
+            style="background-color: rgba(45, 45, 45, 0.95)"
+          >
+            <p style="font-family: garamond; text-align: center">
+              <strong>About Me</strong>
+            </p>
+            <p style="font-family: 'Times New Roman', Times, serif">
+              Hi there, I'm
+              <span style="font-family: cursive">Harrison Gao</span>, an Art
+              Freelancer, Guitar Player, Detective Novel Enthusiast, Traveler,
+              and aspiring Software Development Engineer.
+            </p>
+            <p style="font-family: garamond; text-align: center">
+              Currently I'm in...
+            </p>
+            <p
+              style="
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 18px;
+              "
+            >
+              Computer Science Major & Business Studies Minor @
+              <a
+                href="https://cs.nyu.edu/home/index.html"
+                style="
+                  color: rgba(197, 143, 255, 0.622);
+                  font-family: Garamond;
+                  text-decoration: none;
+                "
+                target="_blank"
+                >New York University.</a
+              >
+            </p>
+            <p
+              style="
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 18px;
+              "
+            >
+              Research assistant and CSCI-UA student tutor @
+              <a
+                href="https://cims.nyu.edu/dynamic/"
+                style="
+                  color: rgba(245, 151, 151, 0.622);
+                  font-family: Garamond;
+                  text-decoration: none;
+                "
+                target="_blank"
+                >NYU Courant Institution of Mathematics.</a
+              >
+            </p>
+            <p
+              style="
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 18px;
+              "
+            >
+              Milennium Fellow at United Nation's MCN
+              <a
+                href="https://www.millenniumfellows.org/fellow/2024/nyu/haoran-gao"
+                style="
+                  color: rgba(107, 188, 251, 0.623);
+                  font-family: Garamond;
+                  text-decoration: none;
+                "
+                target="_blank"
+                >United Nation Academic Impact.</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 我的时间显示 -->
+    <section class="time-section">
+      <p>
+        <strong>My Current Time (US Eastern)</strong>
+        <span id="current-time"> Loading...</span>
+      </p>
+    </section>
+    <!-- 横向展示 -->
+    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
+      <div
+        class="content-wrapper flex"
+        style="
+          width: 95%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 10px;
+        "
+      >
+        <div class="three-section-container">
+          <div class="section-box">
+            <img src="assets/images/projects/IMG_2985.JPG" alt="Project 1" />
+            <p>Project 1: Description of your work here.</p>
+          </div>
+          <div class="section-box">
+            <img src="assets/images/projects/IMG_6498.jpeg" alt="Project 2" />
+            <p>Project 2: Another description here.</p>
+          </div>
+          <div class="section-box">
+            <img
+              src="assets/images/profile_pictures/IMG_5471.jpeg"
+              alt="Project 3"
+            />
+            <p>Project 3: More details about your work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
+      <!-- New flex box -->
+      <div class="content-wrapper">
+        <div class="profile-box" style="margin: 10px 10px; align-items: center">
+          <div
+            class="contentBase display shadow mgt8"
+            style="background-color: rgba(45, 45, 45, 0.95)"
+          >
+            <p style="font-family: garamond; text-align: center">
+              My Recent Work
+            </p>
+            <p style="font-family: 'Times New Roman', Times, serif">
+              Here you can add information about your recent projects,
+              achievements, or any other content you'd like to showcase.
+            </p>
+          </div>
+          <img
+            src="assets/images/artwork/IMG_6521.jpeg"
+            alt="Project Image"
+            style="order: 2"
+          />
+          <!-- /* This puts the image on the right side */  -->
+        </div>
+      </div>
+    </section>
+
+    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
+      <!-- New flex box -->
+      <div class="content-wrapper">
+        <div class="profile-box" style="margin: 10px 10px; align-items: center">
+          <div
+            class="contentBase display shadow mgt8"
+            style="background-color: rgba(45, 45, 45, 0.95)"
+          >
+            <p style="font-family: garamond; text-align: center">
+              My Recent Work
+            </p>
+            <p style="font-family: 'Times New Roman', Times, serif">
+              Here you can add information about your recent projects,
+              achievements, or any other content you'd like to showcase.
+            </p>
+          </div>
+          <img
+            src="assets/images/artwork/《赛博贵物：狠活行者》.jpg"
+            alt="Project Image"
+            style="order: 2"
+          />
+          <!-- /* This puts the image on the right side */  -->
+        </div>
+      </div>
+    </section>
+
+    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
+      <!-- New flex box -->
+      <div class="content-wrapper">
+        <div class="profile-box" style="margin: 10px 10px; align-items: center">
+          <div
+            class="contentBase display shadow mgt8"
+            style="background-color: rgba(45, 45, 45, 0.95)"
+          >
+            <p style="font-family: garamond; text-align: center">
+              My Recent Work
+            </p>
+            <p style="font-family: 'Times New Roman', Times, serif">
+              Here you can add information about your recent projects,
+              achievements, or any other content you'd like to showcase.
+            </p>
+          </div>
+          <img
+            src="assets/images/artwork/Romantic.jpg"
+            alt="Project Image"
+            style="order: 2"
+          />
+          <!-- /* This puts the image on the right side */  -->
+        </div>
+      </div>
+    </section>
+
+    <!-- bottom display area -->
+    <section
+      class="flex1 flex footer base shadow"
+      style="border-radius: 0; height: 100px; justify-content: center"
+      id="contact"
+    >
+      <!-- 底部栏中间区 -->
+      <div
+        class="flex column"
+        style="justify-content: center; align-items: center"
+      >
+        <div class="flex" style="align-self: center; margin-bottom: 10px">
+          <b style="font-size: 15px"
+            >Thank you for visiting. Please feel free to connect via:</b
+          >
+        </div>
+        <!-- profile picture + logo -->
+        <div
+          class="flex"
+          style="justify-content: center; align-items: center; margin: 10px"
+        >
+          <a
+            style="display: inline-block"
+            href="https://www.linkedin.com/in/harrisongao/"
+            target="_blank"
+          >
+            <img
+              class="flex topIcon"
+              style="width: 25px; align-self: center; margin: 3px"
+              src="assets/images/icons/linkedin.png"
+              alt="a"
+            />
+          </a>
+          <a
+            style="display: inline-block"
+            href="https://github.com/HTK-G"
+            target="_blank"
+          >
+            <img
+              class="flex topIcon"
+              style="width: 25px; align-self: center; margin: 3px"
+              src="assets/images/icons/github.png"
+              alt="a"
+            />
+          </a>
+          <a style="display: inline-block" href="mailto:hg2655@nyu.edu"
+            ><img
+              class="flex topIcon"
+              style="width: 25px; align-self: center; margin: 3px"
+              src="assets/images/icons/email.svg"
+              alt="email"
+          /></a>
+        </div>
+        <div><i>Copyright ©2024 HaoranGao</i></div>
+      </div>
+    </section>
+
+    <!-- Add this script at the end of the body tag -->
+  </body>
+</html>

@@ -1,0 +1,334 @@
+
+    /*  */
+    * {
+    border: 1px black solid;
+    }
+
+    /* GLOBAL STYLES
+      These affect the entire website:
+      - Sets up the background image
+      - Makes sure the page takes up full height
+      - Sets basic background color */
+    body {
+
+        display: flex;
+        flex-direction: column;
+        background-image: url("../assets/images/backgroundImages/blackGrey.jpg");
+        background-color: rgb(0,0,0, 0.2);
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    /* FOOTER STYLES
+    Bottom section of the page:
+    - Container sizing
+    - Positioning
+    - Spacing for footer content */
+    .footer {
+        padding: 15px; /* Reduced from 30px */
+        height: 86px; /* Reduced by 14% from original 100px */
+        z-index: 1;
+        margin-top: auto;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex1 {
+      flex: 1;
+    }
+
+    .column {
+      flex-direction: column;
+    }
+
+    .topBar {
+      margin-top: 25px auto;
+      margin: 10px;
+      padding: 15px;
+      height: 30px;
+      z-index: 2;
+      border-radius: 10px;
+    }
+
+    .topBar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topIcon {
+      display: flex;
+      align-self: center;
+      width: 30px;
+      border-radius: 50px;
+    }
+
+    .mgl8 {
+      margin-left: 8px;
+    }
+
+    .mgr8 {
+      margin-right: 8px;
+    }
+
+    .nav {
+      display: flex;
+      text-decoration: none;
+      align-items: center;
+      color: rgb(54, 54, 54);
+      font-size: 20px;
+      padding: 3px;
+      font-family: rubik;
+    }
+
+    .nav:hover {
+      color: #e7e7e7;
+      background-color: rgb(56, 56, 56);
+      border-radius: 5px;
+    }
+
+    .home {
+      flex: 1;
+      text-decoration: none;
+      align-items: center;
+    }
+
+    /* MAIN CONTENT AREA STYLES
+      Styles for the main page content:
+      - Content container
+      - Display cards
+      - Scrolling behavior */
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .shadow {
+      box-shadow: rgba(144, 103, 103, 0.2) 0px 2px 1px -1px,
+        rgb(0 0 0/14%) 0px 1px 1px 0px, rgb(0 0 0/12%) 0px 1px 3px 0px;
+    }
+
+    .base {
+      background-color: rgba(255, 255, 255, 0.74);
+      border-radius: 5px;
+    }
+    .contentBase {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 5px;
+    }
+
+    .display {
+      margin: 10px;
+    }
+
+    /* Profile Section Fixes */
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto; /* Allow it to grow */
+      margin: 10px; /* Adjust the margin as needed */
+    }
+
+    .profile-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+    
+    .profile-box img {
+        width: 40%; /* 4:6 ratio */
+        border-radius: 10px;
+    }
+    
+    .profile-box .text-box {
+        width: 60%; /* 4:6 ratio */
+        padding: 20px;
+        background-color: rgba(50, 50, 50, 0.8);
+        color: white;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+
+    .profile-box div {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: rgba(50, 50, 50, 0.8);
+      color: white;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      min-height: 200px;
+      text-align: left;
+    }
+
+    .profile-box p {
+      color: rgb(233, 233, 233);
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .profile-box {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .profile-box img {
+        width: 45vw;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+
+      .profile-box div {
+        padding: 10px;
+        text-align: center;
+      }
+
+      .profile-box p {
+        font-size: 4vw;
+      }
+    }
+
+    /* Hamburger Menu Styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+      margin-right: 15px;
+    }
+
+    .hamburger span {
+      background: #363636;
+      height: 3px;
+      width: 25px;
+      margin: 2px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Mobile Responsive Styles */
+    /* HAMBURGER MENU STYLES
+      Mobile navigation controls:
+      - The three-line menu icon
+      - Animation for menu open/close
+      - Dropdown menu appearance */
+    @media screen and (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        margin: 5px 0;
+      }
+
+      /* Animation for hamburger menu */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+
+
+
+    .three-section-container {
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        max-width: 1200px;
+        margin: 20px auto;
+    }
+    
+    .section-box {
+        width: 32%; /* Evenly distributed in the row */
+        background-color: rgba(50, 50, 50, 0.8);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .section-box img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    
+    .section-box p {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #fff;
+    }
+
+
+/* Time display */
+    .time-section {
+        text-align: center;
+        padding: 5px 10px;
+        margin-top: 0px;
+        border-radius: 1px;
+        color: rgb(233, 233, 233);
+        font-size: 18px;
+    }
+    .time-section p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    #current-time {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    img {
+        max-width: 100%; /* Prevent oversized images */
+        height: auto;
+    }
+    
+    
