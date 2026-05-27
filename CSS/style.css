@@ -759,13 +759,14 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0.65rem 0 0;
+  margin: 0; /* remove extra gap so wrapper controls vertical placement */
   padding: 0.45rem 0.9rem;
   font-weight: 700;
   background: #ffffff;
   color: #000000;
   border-radius: 8px;
   z-index: 3;
+  pointer-events: auto; /* ensure the button remains clickable when wrapper ignores pointer events */
 }
 
 #highlights-toggle-wrap {
@@ -774,6 +775,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* pull the wrapper up so it overlaps the fade overlay and removes the gap */
+  margin-top: -2.2rem;
+  pointer-events: none; /* let the button handle interaction */
 }
 
 #highlights-toggle-wrap::before {
