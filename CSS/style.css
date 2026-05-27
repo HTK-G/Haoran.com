@@ -255,6 +255,7 @@ img {
   object-fit: cover;
   border-radius: 0;
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
+  filter: grayscale(1) brightness(0.72) contrast(0.96);
 }
 
 .kicker {
@@ -405,6 +406,7 @@ img {
   height: 210px;
   object-fit: cover;
   display: block;
+  filter: grayscale(1) brightness(0.74) contrast(0.96);
 }
 
 .card-body {
@@ -456,6 +458,7 @@ img {
   max-height: 145px;
   object-fit: cover;
   border-radius: 0;
+  filter: grayscale(1) brightness(0.76) contrast(0.95);
 }
 
 #home-featured-list .stack-item {
@@ -465,6 +468,7 @@ img {
 #home-featured-list .stack-item img {
   min-height: 240px;
   max-height: 310px;
+  filter: grayscale(1) brightness(0.73) contrast(0.95);
 }
 
 #gallery-art-list .stack-item {
@@ -474,6 +478,7 @@ img {
 #gallery-art-list .stack-item img {
   min-height: 340px;
   max-height: 460px;
+  filter: grayscale(1) brightness(0.71) contrast(0.94);
 }
 
 .stack-item h3 {
@@ -533,11 +538,13 @@ img {
   width: 100%;
   margin: 0;
   padding: 1rem 1.2rem 1.15rem;
-  background: rgba(7, 7, 7, 0.92);
+  background: rgba(255, 255, 255, 0.1);
   text-align: center;
   border-left: 0;
   border-right: 0;
   border-radius: 0;
+  color: #111111;
+  backdrop-filter: blur(18px);
 }
 
 .footer-title {
@@ -562,18 +569,19 @@ img {
   justify-content: center;
   border-radius: 0;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .social-links img {
   width: 18px;
   height: 18px;
   object-fit: contain;
+  filter: brightness(0.2) contrast(1.2);
 }
 
 .copyright {
   margin: 0.75rem 0 0;
-  color: var(--text-1);
+  color: #222222;
   font-size: 0.86rem;
 }
 
@@ -614,7 +622,7 @@ img {
     margin-left: 0;
     flex-direction: column;
     align-items: stretch;
-    background: rgba(7, 7, 7, 0.96);
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid var(--line);
     border-radius: 0;
     padding: 0.35rem;
