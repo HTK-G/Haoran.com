@@ -54,7 +54,7 @@ body::after {
 
 body::before {
   content: "";
-  z-index: 2;
+  z-index: 0;
   background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.44) 1.15px, transparent 1.25px);
   background-size: 26px 26px;
   background-position: 0 0;
@@ -66,7 +66,7 @@ body::before {
 
 body::after {
   content: "";
-  z-index: 2;
+  z-index: 0;
   background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.2) 0.95px, transparent 1px);
   background-size: 50px 50px;
   background-position: 14px 14px;
