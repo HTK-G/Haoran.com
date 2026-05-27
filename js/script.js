@@ -79,13 +79,19 @@
       const height = window.innerHeight || 1;
       const percentX = (targetX / width) * 100;
       const percentY = (targetY / height) * 100;
-      const driftX = ((targetX / width) - 0.5) * 18;
-      const driftY = ((targetY / height) - 0.5) * 12;
+      const driftX = (targetX / width - 0.5) * 18;
+      const driftY = (targetY / height - 0.5) * 12;
 
       root.style.setProperty("--pointer-x", percentX.toFixed(2) + "%");
       root.style.setProperty("--pointer-y", percentY.toFixed(2) + "%");
-      root.style.setProperty("--pointer-x-2", (100 - percentX).toFixed(2) + "%");
-      root.style.setProperty("--pointer-y-2", (100 - percentY).toFixed(2) + "%");
+      root.style.setProperty(
+        "--pointer-x-2",
+        (100 - percentX).toFixed(2) + "%",
+      );
+      root.style.setProperty(
+        "--pointer-y-2",
+        (100 - percentY).toFixed(2) + "%",
+      );
       root.style.setProperty("--bg-drift-x", driftX.toFixed(2) + "px");
       root.style.setProperty("--bg-drift-y", driftY.toFixed(2) + "px");
     }
@@ -107,12 +113,15 @@
         return;
       }
 
-      if (Math.abs(event.clientX - targetX) < 20 && Math.abs(event.clientY - targetY) < 20) {
+      if (
+        Math.abs(event.clientX - targetX) < 28 &&
+        Math.abs(event.clientY - targetY) < 28
+      ) {
         return;
       }
 
       queueUpdate(event.clientX, event.clientY);
-    });
+    }, { passive: true });
 
     window.addEventListener("pointerleave", function () {
       queueUpdate(window.innerWidth * 0.5, window.innerHeight * 0.4);
