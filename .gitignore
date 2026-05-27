@@ -1,6 +1,14 @@
 .DS_Store
 **/.DS_Store
 
+# Keep original source images local; commit webp derivatives instead.
+assets/images/**/*.jpg
+assets/images/**/*.jpeg
+assets/images/**/*.png
+assets/images/**/*.JPG
+assets/images/**/*.JPEG
+assets/images/**/*.PNG
+
 # Optional output folder if you batch-generate optimized images.
 assets/images/optimized/
 
