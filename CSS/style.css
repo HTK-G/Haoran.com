@@ -14,10 +14,6 @@
   --max-width: 1120px;
   --bg-drift-x: 0px;
   --bg-drift-y: 0px;
-  --pointer-x: 50%;
-  --pointer-y: 40%;
-  --pointer-x-2: 75%;
-  --pointer-y-2: 65%;
 }
 
 * {
@@ -59,11 +55,9 @@ body::after {
 body::before {
   content: "";
   z-index: 2;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.44) 1.15px, transparent 1.25px),
-    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.16), transparent 22%);
-  background-size: 26px 26px, auto;
-  background-position: 0 0, center;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.44) 1.15px, transparent 1.25px);
+  background-size: 26px 26px;
+  background-position: 0 0;
   transform: translate3d(calc(var(--bg-drift-x) * 0.8), calc(var(--bg-drift-y) * 0.8), 0);
   transition: transform 160ms ease-out;
   opacity: 0.84;
@@ -73,11 +67,9 @@ body::before {
 body::after {
   content: "";
   z-index: 2;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.2) 0.95px, transparent 1px),
-    radial-gradient(circle at var(--pointer-x-2) var(--pointer-y-2), rgba(255, 255, 255, 0.1), transparent 18%);
-  background-size: 50px 50px, auto;
-  background-position: 14px 14px, center;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.2) 0.95px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 14px 14px;
   transform: translate3d(calc(var(--bg-drift-x) * -0.5), calc(var(--bg-drift-y) * -0.5), 0);
   transition: transform 180ms ease-out;
   opacity: 0.68;

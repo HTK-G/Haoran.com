@@ -89,16 +89,6 @@
       const driftX = (targetX / width - 0.5) * 16;
       const driftY = (targetY / height - 0.5) * 10;
 
-      root.style.setProperty("--pointer-x", percentX.toFixed(2) + "%");
-      root.style.setProperty("--pointer-y", percentY.toFixed(2) + "%");
-      root.style.setProperty(
-        "--pointer-x-2",
-        (100 - percentX).toFixed(2) + "%",
-      );
-      root.style.setProperty(
-        "--pointer-y-2",
-        (100 - percentY).toFixed(2) + "%",
-      );
       root.style.setProperty("--bg-drift-x", driftX.toFixed(2) + "px");
       root.style.setProperty("--bg-drift-y", driftY.toFixed(2) + "px");
     }
