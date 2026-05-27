@@ -397,6 +397,9 @@
       toggle.id = "highlights-toggle";
       toggle.className = "btn highlights-toggle-btn";
       toggle.textContent = "Show more";
+      // Accessibility attributes
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-controls", "home-highlights-grid");
       container.after(toggle);
     }
 
@@ -406,7 +409,10 @@
       const gap = parseFloat(getComputedStyle(container).gap) || 12;
       const cardHeight = firstCard.getBoundingClientRect().height;
       const collapsed = cardHeight * 1.5 + gap;
-      container.style.setProperty("--highlights-collapsed-height", collapsed + "px");
+      container.style.setProperty(
+        "--highlights-collapsed-height",
+        collapsed + "px",
+      );
       if (!container.classList.contains("expanded")) {
         container.style.maxHeight = collapsed + "px";
         container.classList.add("collapsed");
@@ -422,10 +428,14 @@
       if (expanded) {
         container.style.maxHeight = "";
         toggle.textContent = "Show less";
+        toggle.setAttribute("aria-expanded", "true");
       } else {
-        const h = container.style.getPropertyValue("--highlights-collapsed-height");
+        const h = container.style.getPropertyValue(
+          "--highlights-collapsed-height",
+        );
         container.style.maxHeight = h;
         toggle.textContent = "Show more";
+        toggle.setAttribute("aria-expanded", "false");
         // ensure the container is visible when collapsing
         container.scrollIntoView({ block: "nearest" });
       }
