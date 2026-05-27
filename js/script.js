@@ -243,8 +243,13 @@
     }
 
     root.innerHTML = "";
-    if (targetId === "#home-highlights-grid") {
-      root.classList.add("card-strip");
+    const isHighlights = targetId === "#home-highlights-grid";
+    if (isHighlights) {
+      // Ensure highlights render as the grid on desktop and use a compact,
+      // scrollable description area per-card. Remove any horizontal strip
+      // class that may have been toggled previously.
+      root.classList.remove("card-strip");
+      root.classList.add("card-grid");
     }
 
     items.forEach(function (item) {
@@ -279,6 +284,11 @@
 
       const text = document.createElement("p");
       text.textContent = item.text;
+      if (isHighlights) {
+        // Make the description area visually short but scrollable without
+        // showing a scrollbar (handled in CSS).
+        text.classList.add("card-desc-scroll");
+      }
 
       body.appendChild(title);
       body.appendChild(text);

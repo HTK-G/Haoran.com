@@ -666,3 +666,15 @@ img {
     scroll-behavior: auto !important;
   }
 }
+
+/* Compact, scrollable description for highlight cards (hide scrollbar) */
+.card-desc-scroll {
+  max-height: 68px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.card-desc-scroll::-webkit-scrollbar {
+  display: none;
+}

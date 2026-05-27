@@ -35,14 +35,14 @@ window.SITE_DATA = {
     {
       date: "2026",
       title: "Full-time Transition",
-      text: "Preparing for full-time engineering with a focus on production quality and long-term impact.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
       image: "assets/images/highlights/WangHong.webp",
       imageAlt: "Academic milestone",
     },
     {
       date: "2025",
       title: "Cross-Discipline Growth",
-      text: "Continued combining engineering projects with artistic exploration and clear communication.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
       image: "assets/images/highlights/horseshoeHandsome.webp",
       imageAlt: "Travel highlight",
     },
