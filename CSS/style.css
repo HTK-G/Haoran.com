@@ -604,11 +604,13 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 5.2rem;
+    height: 6.4rem; /* larger so the fade is more visible */
     z-index: 2;
-    background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.45) 60%, rgba(10,10,10,0.88) 100%);
+    /* stronger gradient to make the fade obvious */
+    background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.55) 40%, rgba(10,10,10,0.92) 100%);
     pointer-events: none;
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    filter: blur(2px);
   }
 
   #home-highlights-grid.collapsed {
@@ -621,11 +623,36 @@ img {
   }
 
   .highlights-toggle-btn {
-    display: block;
-    margin: 0.65rem auto 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.65rem 0 0;
     padding: 0.45rem 0.9rem;
     font-weight: 700;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 8px;
+    z-index: 3; /* sit above the horizontal line */
   }
+
+/* Wrapper that draws a horizontal rule with the toggle centered above it */
+#highlights-toggle-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#highlights-toggle-wrap::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  z-index: 2;
+}
 
   .hero-image {
     max-height: 420px;

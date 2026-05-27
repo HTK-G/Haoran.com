@@ -391,6 +391,15 @@
     // Ensure proper overflow and initial state
     container.style.overflow = "hidden";
 
+    // Ensure a centered wrapper exists for the toggle so we can draw a
+    // horizontal line and position the button in the middle of it.
+    let wrap = qs("#highlights-toggle-wrap");
+    if (!wrap) {
+      wrap = document.createElement("div");
+      wrap.id = "highlights-toggle-wrap";
+      container.after(wrap);
+    }
+
     let toggle = qs("#highlights-toggle");
     if (!toggle) {
       toggle = document.createElement("button");
@@ -400,7 +409,12 @@
       // Accessibility attributes
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-controls", "home-highlights-grid");
-      container.after(toggle);
+      wrap.appendChild(toggle);
+    } else {
+      // if toggle exists but was outside the wrapper for some reason, ensure it's inside
+      if (!wrap.contains(toggle)) {
+        wrap.appendChild(toggle);
+      }
     }
 
     function computeCollapsedHeight() {
