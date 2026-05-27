@@ -376,9 +376,9 @@ img {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 64px;
-  height: 140px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(6, 6, 6, 0.92));
+  bottom: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(6, 6, 6, 0.98));
   pointer-events: none;
   opacity: 1;
   transition: opacity 0.25s ease;
@@ -390,7 +390,7 @@ img {
 
 .highlights-toggle {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: block;
   margin: 0.95rem auto 0;
   min-width: 150px;
@@ -398,7 +398,7 @@ img {
   border: 1px solid var(--line);
   border-radius: 0;
   background: rgba(255, 255, 255, 0.08);
-  color: var(--text-0);
+  color: #ffffff;
   font-weight: 700;
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -408,6 +408,10 @@ img {
 
 .highlights-toggle:hover {
   background: rgba(255, 255, 255, 0.12);
+}
+
+.highlights-toggle:visited {
+  color: #ffffff;
 }
 
 .highlights-toggle:focus-visible {
