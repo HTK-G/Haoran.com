@@ -6,6 +6,14 @@
 2. Keep page structure and styles unchanged unless needed.
 3. Review in browser after each update.
 
+## Boilerplate And Source Of Truth
+
+- Boilerplate layout lives in `index.html`, `gallery.html`, and `project.html`.
+- Shared rendering logic lives in `js/script.js`.
+- All editable site content lives in `js/site-data.js`.
+- Shared look and feel lives in `CSS/style.css`.
+- If you want to update text, links, or image paths, `js/site-data.js` is the source of truth.
+
 ## Hints You Should Update Soon
 
 - `meta.siteUrl` in `js/site-data.js` is a placeholder (`https://your-domain.com`).

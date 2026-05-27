@@ -35,7 +35,7 @@
       jobTitle: data.profile.role,
       url: data.meta.siteUrl,
       sameAs: data.meta.sameAs,
-      image: data.profile.image
+      image: data.profile.image,
     };
 
     schemaEl.textContent = JSON.stringify(schema, null, 2);
@@ -56,7 +56,8 @@
     });
 
     document.addEventListener("click", function (event) {
-      const clickInside = menuButton.contains(event.target) || links.contains(event.target);
+      const clickInside =
+        menuButton.contains(event.target) || links.contains(event.target);
       if (!clickInside) {
         links.classList.remove("active");
         menuButton.classList.remove("active");
@@ -77,7 +78,7 @@
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
-      hour12: true
+      hour12: true,
     };
     timeEl.textContent = new Intl.DateTimeFormat("en-US", options).format(now);
   }
@@ -171,6 +172,9 @@
     }
 
     root.innerHTML = "";
+    if (targetId === "#home-highlights-grid") {
+      root.classList.add("card-strip");
+    }
 
     items.forEach(function (item) {
       const card = document.createElement("article");
@@ -230,7 +234,9 @@
       title.textContent = item.title;
 
       const detail = document.createElement("p");
-      detail.textContent = item.subtitle ? item.subtitle + " · " + item.text : item.text;
+      detail.textContent = item.subtitle
+        ? item.subtitle + " · " + item.text
+        : item.text;
 
       left.appendChild(title);
       left.appendChild(detail);
