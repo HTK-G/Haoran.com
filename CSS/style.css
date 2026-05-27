@@ -60,9 +60,9 @@ body::before {
   content: "";
   z-index: 0;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.16) 1.1px, transparent 1.2px),
-    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.08), transparent 22%);
-  background-size: 28px 28px, auto;
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.28) 1.2px, transparent 1.3px),
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.12), transparent 22%);
+  background-size: 26px 26px, auto;
   background-position: 0 0, center;
   transform: translate3d(calc(var(--bg-drift-x) * 0.8), calc(var(--bg-drift-y) * 0.8), 0);
   transition: transform 160ms ease-out;
@@ -73,13 +73,27 @@ body::after {
   content: "";
   z-index: 0;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 0.9px, transparent 1px),
-    radial-gradient(circle at var(--pointer-x-2) var(--pointer-y-2), rgba(255, 255, 255, 0.05), transparent 18%);
-  background-size: 52px 52px, auto;
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.14) 0.95px, transparent 1px),
+    radial-gradient(circle at var(--pointer-x-2) var(--pointer-y-2), rgba(255, 255, 255, 0.08), transparent 18%);
+  background-size: 50px 50px, auto;
   background-position: 14px 14px, center;
   transform: translate3d(calc(var(--bg-drift-x) * -0.5), calc(var(--bg-drift-y) * -0.5), 0);
   transition: transform 180ms ease-out;
   opacity: 0.75;
+}
+
+body.ambient-webgl::before,
+body.ambient-webgl::after {
+  content: none;
+}
+
+.ambient-webgl-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
 }
 
 body > * {
