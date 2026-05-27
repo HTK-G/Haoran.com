@@ -371,6 +371,8 @@
 
     renderHomeHero();
     renderCards("#home-highlights-grid", data.highlights, true);
+    // Setup collapsible behavior for highlights (show first + half rows)
+    setupHighlightsCollapse();
     renderStack("#home-featured-list", data.homeNotes);
     renderJournal();
 
@@ -380,6 +382,54 @@
     }
 
     renderStack("#gallery-art-list", data.gallery);
+  }
+
+  function setupHighlightsCollapse() {
+    const container = qs("#home-highlights-grid");
+    if (!container) return;
+
+    // Ensure proper overflow and initial state
+    container.style.overflow = "hidden";
+
+    let toggle = qs("#highlights-toggle");
+    if (!toggle) {
+      toggle = document.createElement("button");
+      toggle.id = "highlights-toggle";
+      toggle.className = "btn highlights-toggle-btn";
+      toggle.textContent = "Show more";
+      container.after(toggle);
+    }
+
+    function computeCollapsedHeight() {
+      const firstCard = container.querySelector(".card");
+      if (!firstCard) return;
+      const gap = parseFloat(getComputedStyle(container).gap) || 12;
+      const cardHeight = firstCard.getBoundingClientRect().height;
+      const collapsed = cardHeight * 1.5 + gap;
+      container.style.setProperty("--highlights-collapsed-height", collapsed + "px");
+      if (!container.classList.contains("expanded")) {
+        container.style.maxHeight = collapsed + "px";
+        container.classList.add("collapsed");
+      }
+    }
+
+    computeCollapsedHeight();
+    window.addEventListener("resize", computeCollapsedHeight);
+
+    toggle.addEventListener("click", function () {
+      const expanded = container.classList.toggle("expanded");
+      container.classList.toggle("collapsed", !expanded);
+      if (expanded) {
+        container.style.maxHeight = "";
+        toggle.textContent = "Show less";
+      } else {
+        const h = container.style.getPropertyValue("--highlights-collapsed-height");
+        container.style.maxHeight = h;
+        toggle.textContent = "Show more";
+        // ensure the container is visible when collapsing
+        container.scrollIntoView({ block: "nearest" });
+      }
+    });
   }
 
   if (document.readyState === "loading") {

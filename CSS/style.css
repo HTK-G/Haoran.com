@@ -563,7 +563,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0;
+  border-radius: 8px;
   border: 1px solid var(--line);
   background: #ffffff;
 }
@@ -592,6 +592,23 @@ img {
 
   .hero {
     grid-template-columns: 1fr;
+
+  /* Collapsed highlights state: limit visible rows to 1.5 and hide overflow */
+  #home-highlights-grid.collapsed {
+    max-height: var(--highlights-collapsed-height, 500px);
+    transition: max-height 300ms ease;
+  }
+
+  #home-highlights-grid.expanded {
+    max-height: none;
+  }
+
+  .highlights-toggle-btn {
+    display: inline-block;
+    margin: 0.65rem 0 0;
+    padding: 0.45rem 0.9rem;
+    font-weight: 700;
+  }
   }
 
   .hero-image {
