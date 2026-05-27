@@ -66,6 +66,59 @@
     });
   }
 
+  function setupAmbientBackground() {
+    const root = document.documentElement;
+    let framePending = false;
+    let targetX = window.innerWidth * 0.5;
+    let targetY = window.innerHeight * 0.4;
+
+    function applyPosition() {
+      framePending = false;
+
+      const width = window.innerWidth || 1;
+      const height = window.innerHeight || 1;
+      const percentX = (targetX / width) * 100;
+      const percentY = (targetY / height) * 100;
+      const driftX = ((targetX / width) - 0.5) * 42;
+      const driftY = ((targetY / height) - 0.5) * 30;
+
+      root.style.setProperty("--pointer-x", percentX.toFixed(2) + "%");
+      root.style.setProperty("--pointer-y", percentY.toFixed(2) + "%");
+      root.style.setProperty("--pointer-x-2", (100 - percentX).toFixed(2) + "%");
+      root.style.setProperty("--pointer-y-2", (100 - percentY).toFixed(2) + "%");
+      root.style.setProperty("--bg-drift-x", driftX.toFixed(2) + "px");
+      root.style.setProperty("--bg-drift-y", driftY.toFixed(2) + "px");
+    }
+
+    function queueUpdate(x, y) {
+      targetX = x;
+      targetY = y;
+
+      if (!framePending) {
+        framePending = true;
+        requestAnimationFrame(applyPosition);
+      }
+    }
+
+    applyPosition();
+
+    window.addEventListener("pointermove", function (event) {
+      if (event.pointerType === "touch") {
+        return;
+      }
+
+      queueUpdate(event.clientX, event.clientY);
+    });
+
+    window.addEventListener("pointerleave", function () {
+      queueUpdate(window.innerWidth * 0.5, window.innerHeight * 0.4);
+    });
+
+    window.addEventListener("resize", function () {
+      queueUpdate(targetX, targetY);
+    });
+  }
+
   function updateTime() {
     const timeEl = qs("#current-time");
     if (!timeEl) {
@@ -280,6 +333,7 @@
   function initPage() {
     renderSchema();
     setupMenu();
+    setupAmbientBackground();
     renderSocialLinks();
 
     setText(qs("#copyright-year"), String(new Date().getFullYear()));
