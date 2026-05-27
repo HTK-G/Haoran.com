@@ -357,6 +357,64 @@ img {
   width: 100%;
 }
 
+.highlights-shell {
+  position: relative;
+}
+
+.highlights-grid {
+  max-height: 530px;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.highlights-shell.is-expanded .highlights-grid {
+  max-height: none;
+}
+
+.highlights-shell::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 64px;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(6, 6, 6, 0.92));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.highlights-shell.is-expanded::after {
+  opacity: 0;
+}
+
+.highlights-toggle {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin: 0.95rem auto 0;
+  min-width: 150px;
+  padding: 0.78rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-0);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.highlights-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.highlights-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
 .card-strip {
   display: grid;
   grid-auto-flow: column;
@@ -563,7 +621,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--line);
   background: #ffffff;
 }
@@ -589,70 +647,10 @@ img {
   .card-strip {
     grid-auto-columns: minmax(240px, 280px);
   }
+
   .hero {
     grid-template-columns: 1fr;
   }
-
-  /* Collapsed highlights state: limit visible rows to 1.5 and hide overflow */
-  #home-highlights-grid {
-    position: relative;
-  }
-
-  #home-highlights-grid.collapsed::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 6.4rem; /* larger so the fade is more visible */
-    z-index: 2;
-    /* stronger gradient to make the fade obvious */
-    background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.55) 40%, rgba(10,10,10,0.92) 100%);
-    pointer-events: none;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    filter: blur(2px);
-  }
-
-  #home-highlights-grid.collapsed {
-    max-height: var(--highlights-collapsed-height, 500px);
-    transition: max-height 300ms ease;
-  }
-
-  #home-highlights-grid.expanded {
-    max-height: none;
-  }
-
-  .highlights-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0.65rem 0 0;
-    padding: 0.45rem 0.9rem;
-    font-weight: 700;
-    background: #ffffff;
-    color: #000000;
-    border-radius: 8px;
-    z-index: 3; /* sit above the horizontal line */
-  }
-
-/* Wrapper that draws a horizontal rule with the toggle centered above it */
-#highlights-toggle-wrap {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#highlights-toggle-wrap::before {
-  content: "";
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  height: 1px;
-  background: rgba(255,255,255,0.06);
-  z-index: 2;
-}
 
   .hero-image {
     max-height: 420px;
@@ -714,6 +712,15 @@ img {
   .card-strip {
     grid-auto-columns: minmax(220px, 80vw);
   }
+
+  .highlights-grid {
+    max-height: 545px;
+  }
+
+  .highlights-shell::after {
+    bottom: 66px;
+    height: 120px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -725,69 +732,6 @@ img {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Ensure highlights toggle and fade overlay apply on desktop as well */
-#home-highlights-grid {
-  position: relative;
-}
-
-#home-highlights-grid.collapsed::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 6.4rem;
-  z-index: 2;
-  background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.65) 35%, rgba(10,10,10,0.98) 100%);
-  pointer-events: none;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  filter: blur(2px);
-}
-
-#home-highlights-grid.collapsed {
-  max-height: var(--highlights-collapsed-height, 500px);
-  transition: max-height 300ms ease;
-}
-
-#home-highlights-grid.expanded {
-  max-height: none;
-}
-
-.highlights-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0; /* remove extra gap so wrapper controls vertical placement */
-  padding: 0.45rem 0.9rem;
-  font-weight: 700;
-  background: #ffffff;
-  color: #000000;
-  border-radius: 8px;
-  z-index: 3;
-  pointer-events: auto; /* ensure the button remains clickable when wrapper ignores pointer events */
-}
-
-#highlights-toggle-wrap {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* pull the wrapper up so it overlaps the fade overlay and removes the gap */
-  margin-top: -2.2rem;
-  pointer-events: none; /* let the button handle interaction */
-}
-
-#highlights-toggle-wrap::before {
-  content: "";
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  height: 1px;
-  background: rgba(255,255,255,0.06);
-  z-index: 2;
 }
 
 /* Compact, scrollable description for highlight cards (hide scrollbar) */

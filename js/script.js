@@ -245,9 +245,6 @@
     root.innerHTML = "";
     const isHighlights = targetId === "#home-highlights-grid";
     if (isHighlights) {
-      // Ensure highlights render as the grid on desktop and use a compact,
-      // scrollable description area per-card. Remove any horizontal strip
-      // class that may have been toggled previously.
       root.classList.remove("card-strip");
       root.classList.add("card-grid");
     }
@@ -358,11 +355,34 @@
     });
   }
 
+  function setupHighlightsToggle() {
+    const shell = qs("#home-highlights-shell");
+    const button = qs("#highlights-toggle");
+
+    if (!shell || !button) {
+      return;
+    }
+
+    function syncButton() {
+      const expanded = shell.classList.contains("is-expanded");
+      button.setAttribute("aria-expanded", String(expanded));
+      button.textContent = expanded ? "Show less" : "Show more";
+    }
+
+    button.addEventListener("click", function () {
+      shell.classList.toggle("is-expanded");
+      syncButton();
+    });
+
+    syncButton();
+  }
+
   function initPage() {
     renderSchema();
     setupMenu();
     setupAmbientBackground();
     renderSocialLinks();
+    setupHighlightsToggle();
 
     setText(qs("#copyright-year"), String(new Date().getFullYear()));
 
@@ -371,8 +391,6 @@
 
     renderHomeHero();
     renderCards("#home-highlights-grid", data.highlights, true);
-    // Setup collapsible behavior for highlights (show first + half rows)
-    setupHighlightsCollapse();
     renderStack("#home-featured-list", data.homeNotes);
     renderJournal();
 
@@ -382,78 +400,6 @@
     }
 
     renderStack("#gallery-art-list", data.gallery);
-  }
-
-  function setupHighlightsCollapse() {
-    const container = qs("#home-highlights-grid");
-    if (!container) return;
-
-    // Ensure proper overflow and initial state
-    container.style.overflow = "hidden";
-
-    // Ensure a centered wrapper exists for the toggle so we can draw a
-    // horizontal line and position the button in the middle of it.
-    let wrap = qs("#highlights-toggle-wrap");
-    if (!wrap) {
-      wrap = document.createElement("div");
-      wrap.id = "highlights-toggle-wrap";
-      container.after(wrap);
-    }
-
-    let toggle = qs("#highlights-toggle");
-    if (!toggle) {
-      toggle = document.createElement("button");
-      toggle.id = "highlights-toggle";
-      toggle.className = "btn highlights-toggle-btn";
-      toggle.textContent = "Show more";
-      // Accessibility attributes
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-controls", "home-highlights-grid");
-      wrap.appendChild(toggle);
-    } else {
-      // if toggle exists but was outside the wrapper for some reason, ensure it's inside
-      if (!wrap.contains(toggle)) {
-        wrap.appendChild(toggle);
-      }
-    }
-
-    function computeCollapsedHeight() {
-      const firstCard = container.querySelector(".card");
-      if (!firstCard) return;
-      const gap = parseFloat(getComputedStyle(container).gap) || 12;
-      const cardHeight = firstCard.getBoundingClientRect().height;
-      const collapsed = cardHeight * 1.5 + gap;
-      container.style.setProperty(
-        "--highlights-collapsed-height",
-        collapsed + "px",
-      );
-      if (!container.classList.contains("expanded")) {
-        container.style.maxHeight = collapsed + "px";
-        container.classList.add("collapsed");
-      }
-    }
-
-    computeCollapsedHeight();
-    window.addEventListener("resize", computeCollapsedHeight);
-
-    toggle.addEventListener("click", function () {
-      const expanded = container.classList.toggle("expanded");
-      container.classList.toggle("collapsed", !expanded);
-      if (expanded) {
-        container.style.maxHeight = "";
-        toggle.textContent = "Show less";
-        toggle.setAttribute("aria-expanded", "true");
-      } else {
-        const h = container.style.getPropertyValue(
-          "--highlights-collapsed-height",
-        );
-        container.style.maxHeight = h;
-        toggle.textContent = "Show more";
-        toggle.setAttribute("aria-expanded", "false");
-        // ensure the container is visible when collapsing
-        container.scrollIntoView({ block: "nearest" });
-      }
-    });
   }
 
   if (document.readyState === "loading") {
