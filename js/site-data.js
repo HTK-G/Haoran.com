@@ -11,7 +11,7 @@ window.SITE_DATA = {
       "This website is intentionally simple: clear signal, low maintenance.",
       "HINT: Replace these lines with your latest one-liners when you have time.",
     ],
-    image: "assets/images/profile_pictures/profileWarm.webp",
+    image: "assets/images/profile_pictures/profile.webp",
     imageAlt: "Haoran Gao profile photo",
     ctaPrimary: {
       label: "View Projects",
