@@ -67,141 +67,84 @@
   }
 
   function setupAmbientBackground() {
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
       return;
     }
 
-    const existingCanvas = qs(".ambient-dots");
-    const canvas = existingCanvas || document.createElement("canvas");
-    const context = canvas.getContext("2d");
+    const root = document.documentElement;
+    let framePending = false;
+    let targetX = window.innerWidth * 0.5;
+    let targetY = window.innerHeight * 0.4;
 
-    if (!context) {
-      return;
+    function applyPosition() {
+      framePending = false;
+
+      const width = window.innerWidth || 1;
+      const height = window.innerHeight || 1;
+      const percentX = (targetX / width) * 100;
+      const percentY = (targetY / height) * 100;
+      const driftX = (targetX / width - 0.5) * 16;
+      const driftY = (targetY / height - 0.5) * 10;
+
+      root.style.setProperty("--pointer-x", percentX.toFixed(2) + "%");
+      root.style.setProperty("--pointer-y", percentY.toFixed(2) + "%");
+      root.style.setProperty(
+        "--pointer-x-2",
+        (100 - percentX).toFixed(2) + "%",
+      );
+      root.style.setProperty(
+        "--pointer-y-2",
+        (100 - percentY).toFixed(2) + "%",
+      );
+      root.style.setProperty("--bg-drift-x", driftX.toFixed(2) + "px");
+      root.style.setProperty("--bg-drift-y", driftY.toFixed(2) + "px");
     }
 
-    if (!existingCanvas) {
-      canvas.className = "ambient-dots";
-      canvas.setAttribute("aria-hidden", "true");
-      document.body.prepend(canvas);
-    }
+    function queueUpdate(x, y) {
+      targetX = x;
+      targetY = y;
 
-    const dots = [];
-    const pointer = {
-      active: false,
-      x: window.innerWidth * 0.5,
-      y: window.innerHeight * 0.4,
-    };
-    let width = 0;
-    let height = 0;
-    let devicePixelRatio = window.devicePixelRatio || 1;
-
-    function rebuildDots() {
-      dots.length = 0;
-
-      const spacing = window.innerWidth < 760 ? 34 : 52;
-      const offsetX = spacing * 0.45;
-      const offsetY = spacing * 0.45;
-
-      for (let y = offsetY; y < height; y += spacing) {
-        for (let x = offsetX; x < width; x += spacing) {
-          dots.push({
-            homeX: x + (Math.random() - 0.5) * spacing * 0.18,
-            homeY: y + (Math.random() - 0.5) * spacing * 0.18,
-            x: x,
-            y: y,
-            vx: 0,
-            vy: 0,
-            size: 0.9 + Math.random() * 0.9,
-            alpha: 0.14 + Math.random() * 0.1,
-          });
-        }
+      if (!framePending) {
+        framePending = true;
+        window.requestAnimationFrame(applyPosition);
       }
     }
 
-    function resizeCanvas() {
-      devicePixelRatio = window.devicePixelRatio || 1;
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = Math.max(1, Math.round(width * devicePixelRatio));
-      canvas.height = Math.max(1, Math.round(height * devicePixelRatio));
-      canvas.style.width = width + "px";
-      canvas.style.height = height + "px";
-      context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-      rebuildDots();
-    }
+    applyPosition();
 
-    function animateDots() {
-      context.clearRect(0, 0, width, height);
-      context.fillStyle = "rgba(255, 255, 255, 0.16)";
-
-      const radius = window.innerWidth < 760 ? 110 : 160;
-      const pullStrength = 0.018;
-      const springStrength = 0.045;
-      const friction = 0.78;
-
-      for (let index = 0; index < dots.length; index += 1) {
-        const dot = dots[index];
-        let forceX = (dot.homeX - dot.x) * springStrength;
-        let forceY = (dot.homeY - dot.y) * springStrength;
-
-        if (pointer.active) {
-          const deltaX = pointer.x - dot.x;
-          const deltaY = pointer.y - dot.y;
-          const distance = Math.hypot(deltaX, deltaY);
-
-          if (distance < radius) {
-            const attraction = 1 - distance / radius;
-            const pull = attraction * attraction * pullStrength * radius;
-            forceX += deltaX * pull;
-            forceY += deltaY * pull;
-            dot.alpha += (0.28 - dot.alpha) * 0.1;
-          } else {
-            dot.alpha += (0.16 - dot.alpha) * 0.05;
-          }
-        } else {
-          dot.alpha += (0.14 - dot.alpha) * 0.05;
+    window.addEventListener(
+      "pointermove",
+      function (event) {
+        if (event.pointerType === "touch") {
+          return;
         }
 
-        dot.vx = (dot.vx + forceX) * friction;
-        dot.vy = (dot.vy + forceY) * friction;
-        dot.x += dot.vx;
-        dot.y += dot.vy;
+        if (
+          Math.abs(event.clientX - targetX) < 24 &&
+          Math.abs(event.clientY - targetY) < 24
+        ) {
+          return;
+        }
 
-        context.globalAlpha = dot.alpha;
-        context.beginPath();
-        context.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
-        context.fill();
-      }
-
-      context.globalAlpha = 1;
-      window.requestAnimationFrame(animateDots);
-    }
-
-    resizeCanvas();
-
-    window.addEventListener("pointermove", function (event) {
-      if (event.pointerType === "touch") {
-        return;
-      }
-
-      pointer.active = true;
-      pointer.x = event.clientX;
-      pointer.y = event.clientY;
-    }, { passive: true });
+        queueUpdate(event.clientX, event.clientY);
+      },
+      { passive: true },
+    );
 
     window.addEventListener("pointerleave", function () {
-      pointer.active = false;
+      queueUpdate(window.innerWidth * 0.5, window.innerHeight * 0.4);
     });
 
     window.addEventListener("blur", function () {
-      pointer.active = false;
+      queueUpdate(window.innerWidth * 0.5, window.innerHeight * 0.4);
     });
 
     window.addEventListener("resize", function () {
-      resizeCanvas();
+      queueUpdate(targetX, targetY);
     });
-
-    animateDots();
   }
 
   function updateTime() {
