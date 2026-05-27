@@ -390,15 +390,8 @@ img {
 .card:hover,
 .stack-item:hover,
 .journal-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.22);
-}
-
-.panel:hover .card,
-.panel:hover .stack-item,
-.panel:hover .journal-item,
-.panel:hover .hero-image {
-  transform: translateY(-2px) perspective(1200px) rotateX(1.1deg) rotateY(-1.3deg);
+  transform: translateY(-5px) perspective(1200px) rotateX(1deg) rotateY(-1deg);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.24);
 }
 
 .card img {
