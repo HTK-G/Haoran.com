@@ -4,24 +4,35 @@ window.SITE_DATA = {
     shortName: "HG",
     role: "Software Engineer",
     location: "New York, NY",
+
     summary:
-      "I build reliable products with a focus on practical engineering, clean interfaces, and measurable outcomes.",
+      "I build reliable products with a focus on practical engineering, clarity, and long-term maintainability.",
+
     details: [
-      "Incoming Software Engineer at Bloomberg.",
-      "This website is intentionally simple: clear signal, low maintenance.",
-      "HINT: Replace these lines with your latest one-liners when you have time.",
+      "Incoming Engineer at Bloomberg, based in New York.",
+      "Interested in systems, product thinking, and software that survives contact with reality.",
     ],
-    image: "assets/images/profile_pictures/profile.webp",
+
+    image: "assets/images/profile_pictures/profileWarm.webp",
     imageAlt: "Haoran Gao profile photo",
+
     ctaPrimary: {
       label: "View Projects",
       href: "project.html",
     },
+
     ctaSecondary: {
       label: "See Gallery",
       href: "gallery.html",
     },
-    tags: ["Engineering", "Product Thinking", "Data", "Design Awareness"],
+
+    tags: [
+      "Engineering",
+      "Product Thinking",
+      "Data",
+      "Design Awareness",
+      "Art",
+    ],
   },
   meta: {
     siteUrl: "https://your-domain.com",
@@ -33,104 +44,118 @@ window.SITE_DATA = {
   },
   highlights: [
     {
-      date: "2026",
+      date: "2026.6.8",
+      title: "New Journey",
+      text: "Placeholder highlight.",
+      image: "assets/images/highlights/start_new_journey.webp",
+      imageAlt: "Start new journey",
+    },
+    // {
+    //   date: "2026.5",
+    //   title: "Sequoia Visit",
+    //   text: "Placeholder highlight.",
+    //   image: "assets/images/highlights/sequoia.webp",
+    //   imageAlt: "Sequoia",
+    // },
+    {
+      date: "2026.5",
+      title: "Graduation",
+      text: "Placeholder highlight.",
+      image: "assets/images/highlights/graduated.webp",
+      imageAlt: "Graduation",
+    },
+
+    {
+      date: "2025.11",
+      title: "Working with Bloomberg Terminal",
+      text: "Placeholder highlight.",
+      image: "assets/images/highlights/bloomberg_terminal.webp",
+      imageAlt: "Bloomberg terminal",
+    },
+    // {
+    //   date: "2025.7",
+    //   title: "Bouldering",
+    //   text: "Placeholder highlight.",
+    //   image: "assets/images/highlights/bouldering.webp",
+    //   imageAlt: "Bouldering",
+    // },
+    // {
+    //   date: "2025.7",
+    //   title: "Happy Moment",
+    //   text: "Placeholder highlight.",
+    //   image: "assets/images/highlights/happy.webp",
+    //   imageAlt: "Happy moment",
+    // },
+    {
+      date: "2025.6",
+      title: "Internship",
+      text: "Placeholder highlight.",
+      image: "assets/images/highlights/un_intern.webp",
+      imageAlt: "Internship",
+    },
+
+    {
+      date: "2025.3",
       title: "Full-time Transition",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
       image: "assets/images/highlights/WangHong.webp",
       imageAlt: "Academic milestone",
     },
     {
-      date: "2025",
+      date: "2025.1",
       title: "Cross-Discipline Growth",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
       image: "assets/images/highlights/horseshoeHandsome.webp",
       imageAlt: "Travel highlight",
     },
+
+    // {
+    //   date: "2025.1",
+    //   title: "Horse Shoe Bend",
+    //   text: "Placeholder highlight.",
+    //   image: "assets/images/highlights/horseShoeBend.webp",
+    //   imageAlt: "Horse Shoe Bend",
+    // },
+
+    // {
+    //   date: "2024.11",
+    //   title: "Research Collaboration",
+    //   text: "Published work around online trend analysis and election-related public sentiment behavior.",
+    //   image: "assets/images/highlights/meetingSmile.webp",
+    //   imageAlt: "Research team highlight",
+    // },
     {
-      date: "2024",
-      title: "Research Collaboration",
-      text: "Published work around online trend analysis and election-related public sentiment behavior.",
-      image: "assets/images/highlights/meetingSmile.webp",
-      imageAlt: "Research team highlight",
-    },
-    {
-      date: "—",
-      title: "Bloomberg Terminal",
+      date: "2024.11",
+      title: "Project Meeting",
       text: "Placeholder highlight.",
-      image: "assets/images/highlights/bloomberg_terminal.webp",
-      imageAlt: "Bloomberg terminal",
+      image: "assets/images/highlights/projectMeeting.webp",
+      imageAlt: "Project meeting",
     },
+
     {
-      date: "—",
-      title: "Bouldering",
+      date: "2024.10",
+      title: "With NYU Dean",
       text: "Placeholder highlight.",
-      image: "assets/images/highlights/bouldering.webp",
-      imageAlt: "Bouldering",
+      image: "assets/images/highlights/with_nyu_dean.webp",
+      imageAlt: "With NYU Dean",
     },
+
     {
-      date: "—",
-      title: "Graduation",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/graduated.webp",
-      imageAlt: "Graduation",
-    },
-    {
-      date: "—",
-      title: "Happy Moment",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/happy.webp",
-      imageAlt: "Happy moment",
-    },
-    {
-      date: "—",
-      title: "Horse Shoe Bend",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/horseShoeBend.webp",
-      imageAlt: "Horse Shoe Bend",
-    },
-    {
-      date: "—",
+      date: "2024.8",
       title: "NYU Welcome",
       text: "Placeholder highlight.",
       image: "assets/images/highlights/NYUwelcome.webp",
       imageAlt: "NYU welcome",
     },
     {
-      date: "—",
-      title: "Project Meeting",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/projectMeeting.webp",
-      imageAlt: "Project meeting",
-    },
-    {
-      date: "—",
-      title: "Sequoia Visit",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/sequoia.webp",
-      imageAlt: "Sequoia",
-    },
-    {
-      date: "—",
-      title: "New Journey",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/start_new_journey.webp",
-      imageAlt: "Start new journey",
-    },
-    {
-      date: "—",
-      title: "Internship",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/un_intern.webp",
-      imageAlt: "Internship",
-    },
-    {
-      date: "—",
-      title: "With NYU Dean",
-      text: "Placeholder highlight.",
-      image: "assets/images/highlights/with_nyu_dean.webp",
-      imageAlt: "With NYU Dean",
+      date: "TBD",
+      title: "More on the Way~",
+      text: "Checkout later for updates.",
+      image: "assets/images/profile_pictures/profile.webp",
+      imageAlt: "NYU welcome",
     },
   ],
+
   homeNotes: [
     {
       title: "Engineering Focus",

@@ -397,9 +397,10 @@ img {
   padding: 0.78rem 1rem;
   border: 1px solid var(--line);
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  background: rgb(255, 255, 255);
+  color: #000000;
   font-weight: 700;
+  font-size: 0.92rem;
   letter-spacing: 0.01em;
   cursor: pointer;
   text-align: center;
