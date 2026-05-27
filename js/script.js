@@ -79,8 +79,8 @@
       const height = window.innerHeight || 1;
       const percentX = (targetX / width) * 100;
       const percentY = (targetY / height) * 100;
-      const driftX = ((targetX / width) - 0.5) * 42;
-      const driftY = ((targetY / height) - 0.5) * 30;
+      const driftX = ((targetX / width) - 0.5) * 18;
+      const driftY = ((targetY / height) - 0.5) * 12;
 
       root.style.setProperty("--pointer-x", percentX.toFixed(2) + "%");
       root.style.setProperty("--pointer-y", percentY.toFixed(2) + "%");
@@ -104,6 +104,10 @@
 
     window.addEventListener("pointermove", function (event) {
       if (event.pointerType === "touch") {
+        return;
+      }
+
+      if (Math.abs(event.clientX - targetX) < 20 && Math.abs(event.clientY - targetY) < 20) {
         return;
       }
 
