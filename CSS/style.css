@@ -727,6 +727,65 @@ img {
   }
 }
 
+/* Ensure highlights toggle and fade overlay apply on desktop as well */
+#home-highlights-grid {
+  position: relative;
+}
+
+#home-highlights-grid.collapsed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6.4rem;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.65) 35%, rgba(10,10,10,0.98) 100%);
+  pointer-events: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  filter: blur(2px);
+}
+
+#home-highlights-grid.collapsed {
+  max-height: var(--highlights-collapsed-height, 500px);
+  transition: max-height 300ms ease;
+}
+
+#home-highlights-grid.expanded {
+  max-height: none;
+}
+
+.highlights-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.65rem 0 0;
+  padding: 0.45rem 0.9rem;
+  font-weight: 700;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 8px;
+  z-index: 3;
+}
+
+#highlights-toggle-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#highlights-toggle-wrap::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  z-index: 2;
+}
+
 /* Compact, scrollable description for highlight cards (hide scrollbar) */
 .card-desc-scroll {
   max-height: 68px;
