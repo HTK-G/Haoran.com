@@ -1,0 +1,6 @@
+.DS_Store
+**/.DS_Store
+
+# Optional output folder if you batch-generate optimized images.
+assets/images/optimized/
+

@@ -5,384 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore the portfolio of Haoran Gao, a designer, developer, and artist with a passion for innovation and creativity."
+      content="Gallery of visual works and experiments by Haoran Gao."
     />
-    <meta
-      name="keywords"
-      content="Haoran Gao, Web Design, Developer, Portfolio, Art, Technology"
-    />
-    <meta name="author" content="Harrison Gao" />
+    <meta name="keywords" content="Haoran Gao, Gallery, Artwork, Design" />
+    <meta name="author" content="Haoran Gao" />
     <meta name="robots" content="index, follow" />
-    <!-- Tells Google to index this page -->
-    <title>HTK·浩然</title>
+    <title>Haoran Gao | Gallery</title>
     <link rel="icon" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="CSS/style.css" />
+    <script src="js/site-data.js" defer></script>
     <script src="js/script.js" defer></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Harrison Gao",
-        "jobTitle": "Web Developer & Designer",
-        "url": "https://yourwebsite.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/harrisongao/",
-          "https://github.com/HTK-G",
-          "https://www.instagram.com/htk_harrison/"
-        ],
-        "alumniOf": "New York University",
-        "knowsAbout": ["Web Development", "Design", "Programming", "Art"],
-        "image": "https://yourwebsite.com/assets/images/profile_pictures/profileWarm.jpeg"
-      }
-    </script>
+    <script id="schema-data" type="application/ld+json"></script>
   </head>
+  <body data-page="gallery">
+    <header class="site-header glass-panel" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logos/Forest.png" alt="Haoran Gao logo" />
+        <span>Haoran Gao</span>
+      </a>
 
-  <!-- 网站主体，我用flex box来设计的，整体为 column排列 -->
-  <body>
-    <!-- 导航栏 -->
-    <header class="flex topBar base shadow">
-      <!-- profile picture + logo -->
-      <div
-        class="flex home"
-        style="justify-content: flex-start; align-items: center"
-      >
-        <a class="nav mgr8 mgl8" href="index.html"><b>HAORAN GAO </b></a>
-        <a href="index.html"
-          ><img
-            class="topIcon flex1"
-            src="assets/images/logos/Forest.png"
-            alt="HaoranGao Logo"
-        /></a>
-      </div>
-      <!-- Navigation links -->
-      <div class="hamburger" onclick="toggleMenu()">
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
-      <div class="nav-links">
-        <a class="nav mgl8 mgr8" href="index.html">Home</a>
-        <!-- <a class="nav mgl8 mgr8" href="about.html">About</a> -->
-        <a class="nav mgl8 mgr8" href="gallery.html">Gallery</a>
-        <a class="nav mgl8 mgr8" href="project.html">Projects</a>
-        <a class="nav mgl8 mgr8" onclick="location.href='#contact'">Contact</a>
-      </div>
+      </button>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="project.html">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <!-- 主内容 -->
-
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                text-align: left;
-              "
-            >
-              <strong>Where Am I? </strong>(2025.3) <br />
-              Monotype Printing <br />
-              <br />
-              Standing at the intersection of the past and the future, the West
-              and the Orient, I often think of where I truly belong to. Through
-              this monotype media I explored the complexity of my identity.
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/WhereAmI.jpeg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
+    <main class="page-shell">
+      <section class="panel">
+        <div class="section-head">
+          <h1>Gallery</h1>
+          <p>
+            A compact presentation of selected artwork. Edit titles and notes in
+            one data file when you want to refresh this page.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                text-align: left;
-              "
-            >
-              <strong>Star </strong> (2025.3)<br />
-              Callograph Printing <br />
-              <br />
-              A byproduct when creating another print. The texture was intricate
-              and beautiful.
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/star.jpeg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
+      <section class="panel">
+        <div class="art-list" id="gallery-art-list"></div>
+      </section>
+    </main>
 
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                text-align: left;
-              "
-            >
-              <strong>The Gate </strong> (2024.6) <br />
-              Ink Painting & Digital Art <br />
-              <br />
-              Another work in my series Collision. The juxtaposition of the
-              Western Graffiti and the Chinese ink painting style creates a
-              unique visual impact. I combined cultural elements in thie work,
-              along with paying homage to many classical Western paintings such
-              as The Weeping Woman by Picasso.
-              <br />
-              This work won the Paint Through Boundary Art Competition at NYU,
-              and is now collected as a Mural Decoration in the NYU Liberal
-              Study Office!
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/Gate.jpg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                text-align: left;
-              "
-            >
-              <strong>Romantic </strong> (2023.1) <br />
-              Digital Art on ProCreate <br />
-              <br />
-              A mini profile picture I drew for my friend whithin 5 minutes. I
-              love how the outcome turned out to be natural and relax.
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/Romantic.jpg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                text-align: left;
-              "
-            >
-              <strong>CyberPunk 2022 </strong> (2022.12) <br />
-              Digital Art on ProCreate <br />
-              <br />
-              A redesign of Animation Cyberpunk 2077: Edge Runners.
-              <br />
-              I allocated influencers from Dongbei, China into a Cyberpunk
-              setting. This bold exploration was viral on the internet, gaining
-              190k+ views on Bilibili. <br />You can watch the process
-              <a
-                href="https://www.bilibili.com/video/BV1o24y197yV/?spm_id_from=333.1387.homepage.video_card.click&vd_source=06ea6bfe9d1627e066bf736eb6592aa3"
-                style="
-                  color: rgba(179, 250, 214, 0.622);
-                  font-family: 'Times New Roman';
-                  text-decoration: none;
-                "
-                target="_blank"
-              >
-                here </a
-              >.
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/《赛博贵物：狠活行者》.jpg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                text-align: left;
-              "
-            >
-              <strong>Time Traveler </strong> (2022.1) <br />
-              Chinese Ink Painting on Canvas <br />
-              <br />
-              Another work in my series Collision. Through aligning mathematical
-              geometrics through the Chinese ink-painting-style horse from
-              《五马图》, I wish to explore a complex feeling when the modernity
-              meets past. I got inspiration from reading science fiction: Three
-              Body Problem by Cixin Liu.
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/timeTraveler.jpg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                text-align: left;
-              "
-            >
-              <strong>Pumpkin Mechanics </strong> (2021.11) <br />
-              Chinese Ink Painting on Canvas <br />
-              <br />
-              I love combining unrelated elemnents into my artwork. This Pumpkin
-              Mechanics is an experiment I made with Chinese ancient mechanic
-              manual 《天工开物》 while paying homage to Yayoi Kusama's design.
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/@pumpkin.jpg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-
-    <!-- bottom display area -->
-    <section
-      class="flex1 flex footer base shadow"
-      style="border-radius: 0; height: 100px; justify-content: center"
-      id="contact"
-    >
-      <!-- 底部栏中间区 -->
-      <div
-        class="flex column"
-        style="justify-content: center; align-items: center"
-      >
-        <div class="flex" style="align-self: center; margin-bottom: 10px">
-          <b style="font-size: 15px"
-            >Thank you for visiting. Please feel free to connect via:</b
-          >
-        </div>
-        <!-- profile picture + logo -->
-        <div
-          class="flex"
-          style="justify-content: center; align-items: center; margin: 10px"
-        >
-          <a
-            style="display: inline-block"
-            href="https://www.linkedin.com/in/harrisongao/"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/linkedin.png"
-              alt="a"
-            />
-          </a>
-          <a
-            style="display: inline-block"
-            href="https://github.com/HTK-G"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/github.png"
-              alt="a"
-            />
-          </a>
-          <a
-            style="display: inline-block"
-            href="https://www.instagram.com/htk_harrison/"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/ins.png"
-              alt="a"
-            />
-          </a>
-          <a style="display: inline-block" href="mailto:hg2655@nyu.edu"
-            ><img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/email.svg"
-              alt="email"
-          /></a>
-        </div>
-        <div><i>Copyright ©2024 HaoranGao</i></div>
-      </div>
-    </section>
-
-    <!-- Add this script at the end of the body tag -->
+    <footer class="site-footer glass-panel" id="contact">
+      <p class="footer-title">Let's connect</p>
+      <div class="social-links" id="social-links"></div>
+      <p class="copyright">Copyright © <span id="copyright-year"></span> Haoran Gao</p>
+    </footer>
   </body>
 </html>

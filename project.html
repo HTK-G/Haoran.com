@@ -5,252 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore the portfolio of Haoran Gao, a designer, developer, and artist with a passion for innovation and creativity."
+      content="Projects and publications by Haoran Gao, software engineer."
     />
-    <meta
-      name="keywords"
-      content="Haoran Gao, Web Design, Developer, Portfolio, Art, Technology"
-    />
-    <meta name="author" content="Harrison Gao" />
+    <meta name="keywords" content="Haoran Gao, Projects, Engineering" />
+    <meta name="author" content="Haoran Gao" />
     <meta name="robots" content="index, follow" />
-    <!-- Tells Google to index this page -->
-    <title>HTK·浩然</title>
+    <title>Haoran Gao | Projects</title>
     <link rel="icon" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="CSS/style.css" />
+    <script src="js/site-data.js" defer></script>
     <script src="js/script.js" defer></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Harrison Gao",
-        "jobTitle": "Web Developer & Designer",
-        "url": "https://yourwebsite.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/harrisongao/",
-          "https://github.com/HTK-G",
-          "https://www.instagram.com/htk_harrison/"
-        ],
-        "alumniOf": "New York University",
-        "knowsAbout": ["Web Development", "Design", "Programming", "Art"],
-        "image": "https://yourwebsite.com/assets/images/profile_pictures/profileWarm.jpeg"
-      }
-    </script>
+    <script id="schema-data" type="application/ld+json"></script>
   </head>
+  <body data-page="projects">
+    <header class="site-header glass-panel" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logos/Pink.png" alt="Haoran Gao logo" />
+        <span>Haoran Gao</span>
+      </a>
 
-  <!-- 网站主体，我用flex box来设计的，整体为 column排列 -->
-  <body>
-    <!-- 导航栏 -->
-    <header class="flex topBar base shadow">
-      <!-- profile picture + logo -->
-      <div
-        class="flex home"
-        style="justify-content: flex-start; align-items: center"
-      >
-        <a class="nav mgr8 mgl8" href="index.html"><b>HAORAN GAO </b></a>
-        <a href="index.html"
-          ><img
-            class="topIcon flex1"
-            src="assets/images/logos/Pink.png"
-            alt="HaoranGao Logo"
-        /></a>
-      </div>
-      <!-- Navigation links -->
-      <div class="hamburger" onclick="toggleMenu()">
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
-      <div class="nav-links">
-        <a class="nav mgl8 mgr8" href="index.html">Home</a>
-        <!-- <a class="nav mgl8 mgr8" href="about.html">About</a> -->
-        <a class="nav mgl8 mgr8" href="gallery.html">Gallery</a>
-        <a class="nav mgl8 mgr8" href="project.html">Projects</a>
+      </button>
 
-        <a class="nav mgl8 mgr8" onclick="location.href='#contact'">Contact</a>
-      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link active" href="project.html">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <!-- 主内容 -->
-
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <div class="three-section-container">
-        <div class="section-box">
-          <a
-            href="https://www.nyu.edu/about/news-publications/news/2024/october/test.html"
-            target="_blank"
-          >
-            <img
-              src="assets/images/projects/trend.jpg"
-              alt="Published Article 1"
-          /></a>
-
-          <p>
-            <a
-              href="https://www.nyu.edu/about/news-publications/news/2024/october/test.html"
-              style="
-                color: rgba(255, 255, 255);
-                font-family: 'Times New Roman';
-                text-decoration: solid;
-              "
-              target="_blank"
-              >Online Sentiment Toward Harris Declined: More So than that for
-              Trump—Vice-Presidential Debate Study Shows</a
-            >
-          </p>
+    <main class="page-shell">
+      <section class="panel">
+        <div class="section-head">
+          <h1>Projects & Publications</h1>
+          <p>Selected work in data, engineering, and applied research.</p>
         </div>
-        <div class="section-box">
-          <a
-            href="https://www.nyu.edu/about/news-publications/news/2024/september/abortion--immigration--and-project-2025-drove-online-topic-searc.html"
-            target="_blank"
-            ><img src="assets/images/projects/topicSearch.jpg" alt="Project 2"
-          /></a>
+        <div class="card-grid" id="project-link-grid"></div>
+      </section>
 
-          <p>
-            <a
-              href="https://www.nyu.edu/about/news-publications/news/2024/september/abortion--immigration--and-project-2025-drove-online-topic-searc.html"
-              style="
-                color: rgba(255, 255, 255);
-                font-family: 'Times New Roman';
-                text-decoration: solid;
-              "
-              target="_blank"
-              >Abortion, Immigration, and Project 2025 Drove Online Topic
-              Searches During and After This Week’s Presidential Debate</a
-            >
-          </p>
+      <section class="panel">
+        <div class="section-head">
+          <h2>Project Snapshots</h2>
+          <p>Short summaries you can keep fresh with minimal maintenance.</p>
         </div>
-        <div class="section-box">
-          <a
-            href="https://www.nyu.edu/about/news-publications/news/2024/october/yard-signs--hats--and-shirts-online-searches-show-division-in-pr.html"
-            target="_blank"
-            ><img src="assets/images/projects/yardsign.jpg" alt="Project 2"
-          /></a>
+        <div class="stack-list" id="project-featured-list"></div>
+      </section>
+    </main>
 
-          <p>
-            <a
-              href="https://www.nyu.edu/about/news-publications/news/2024/october/yard-signs--hats--and-shirts-online-searches-show-division-in-pr.html"
-              style="
-                color: rgba(255, 255, 255);
-                font-family: 'Times New Roman';
-                text-decoration: solid;
-              "
-              target="_blank"
-              >Abortion, Immigration, and Project 2025 Drove Online Topic
-              Searches During and After This Week’s Presidential Debate</a
-            >
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p style="font-family: garamond; text-align: center">
-              Research Project: 2024 Presidential Election
-            </p>
-            <p style="font-family: 'Times New Roman', Times, serif">
-              I was part of
-              <a
-                href="https://www.anassebari.com/"
-                style="
-                  color: rgba(179, 250, 214, 0.622);
-                  font-family: 'Times New Roman';
-                  text-decoration: none;
-                "
-                target="_blank"
-                >Professor Bari's</a
-              >
-              predictive analytics lab, working on finding correlation of
-              <strong>merchandise search trend</strong>merchandise search trend
-              and the election outcome. <br />
-              <br />You can read more about this
-            </p>
-          </div>
-          <img
-            src="assets/images/highlights/meetingSmile.jpg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-
-    <!-- bottom display area -->
-    <section
-      class="flex1 flex footer base shadow"
-      style="border-radius: 0; height: 100px; justify-content: center"
-      id="contact"
-    >
-      <!-- 底部栏中间区 -->
-      <div
-        class="flex column"
-        style="justify-content: center; align-items: center"
-      >
-        <div class="flex" style="align-self: center; margin-bottom: 10px">
-          <b style="font-size: 15px"
-            >Thank you for visiting. Please feel free to connect via:</b
-          >
-        </div>
-        <!-- profile picture + logo -->
-        <div
-          class="flex"
-          style="justify-content: center; align-items: center; margin: 10px"
-        >
-          <a
-            style="display: inline-block"
-            href="https://www.linkedin.com/in/harrisongao/"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/linkedin.png"
-              alt="a"
-            />
-          </a>
-          <a
-            style="display: inline-block"
-            href="https://github.com/HTK-G"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/github.png"
-              alt="a"
-            />
-          </a>
-          <a
-            style="display: inline-block"
-            href="https://www.instagram.com/htk_harrison/"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/ins.png"
-              alt="a"
-            />
-          </a>
-          <a style="display: inline-block" href="mailto:hg2655@nyu.edu"
-            ><img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/email.svg"
-              alt="email"
-          /></a>
-        </div>
-        <div><i>Copyright ©2024 HaoranGao</i></div>
-      </div>
-    </section>
-
-    <!-- Add this script at the end of the body tag -->
+    <footer class="site-footer glass-panel" id="contact">
+      <p class="footer-title">Let's connect</p>
+      <div class="social-links" id="social-links"></div>
+      <p class="copyright">Copyright © <span id="copyright-year"></span> Haoran Gao</p>
+    </footer>
   </body>
 </html>

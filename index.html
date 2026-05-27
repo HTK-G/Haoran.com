@@ -5,406 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore the portfolio of Haoran Gao, a designer, developer, and artist with a passion for innovation and creativity."
+      content="Haoran Gao's personal website: software engineer, builder, and artist."
     />
     <meta
       name="keywords"
-      content="Haoran Gao, Web Design, Developer, Portfolio, Art, Technology"
+      content="Haoran Gao, Software Engineer, Portfolio, Bloomberg, Projects"
     />
-    <meta name="author" content="Harrison Gao" />
+    <meta name="author" content="Haoran Gao" />
     <meta name="robots" content="index, follow" />
-    <!-- Tells Google to index this page -->
-    <title>Harrison高</title>
+    <title>Haoran Gao | Software Engineer</title>
     <link rel="icon" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="CSS/style.css" />
-    <script src="script.js" defer></script>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Harrison Gao",
-        "jobTitle": "Web Developer & Designer",
-        "url": "https://yourwebsite.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/harrisongao/",
-          "https://github.com/HTK-G",
-          "https://www.instagram.com/htk_harrison/"
-        ],
-        "alumniOf": "New York University",
-        "knowsAbout": ["Web Development", "Design", "Programming", "Art"],
-        "image": "https://yourwebsite.com/assets/images/profile_pictures/profileWarm.jpeg"
-      }
-    </script>
+    <script src="js/site-data.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script id="schema-data" type="application/ld+json"></script>
   </head>
+  <body data-page="home">
+    <header class="site-header glass-panel" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logos/Navy.png" alt="Haoran Gao logo" />
+        <span>Haoran Gao</span>
+      </a>
 
-  <!-- 网站主体，我用flex box来设计的，整体为 column排列 -->
-  <body>
-    <!-- 导航栏 -->
-    <header class="flex topBar base shadow">
-      <!-- profile picture + logo -->
-      <div
-        class="flex home"
-        style="justify-content: flex-start; align-items: center"
-      >
-        <a class="nav mgr8 mgl8" href="index.html"><b>HAORAN GAO </b></a>
-        <a href="index.html"
-          ><img
-            class="topIcon flex1"
-            src="assets/images/logos/Navy.png"
-            alt="HaoranGao Logo"
-        /></a>
-      </div>
-      <!-- Navigation links -->
-      <div class="hamburger" onclick="toggleMenu()">
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
-      <div class="nav-links">
-        <a class="nav mgl8 mgr8" href="index.html">Home</a>
-        <!-- <a class="nav mgl8 mgr8" href="about.html">About</a> -->
-        <a class="nav mgl8 mgr8" href="gallery.html">Gallery</a>
-        <a class="nav mgl8 mgr8" href="project.html">Projects</a>
-        <a class="nav mgl8 mgr8" onclick="location.href='#contact'">Contact</a>
-      </div>
+      </button>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="project.html">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <!-- 主内容 -->
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- 大Profile -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <img
-            src="assets/images/profile_pictures/profileWarm.jpeg"
-            alt="Harrison's Handsome Profile Photo"
-            style=""
-            loading="lazy"
-          />
+    <main class="page-shell">
+      <section class="hero panel" id="home-hero"></section>
 
-          <div
-            class="text-box contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p
-              style="
-                font-family: garamond;
-                text-align: center;
-                color: rgb(209, 145, 99);
-              "
-            >
-              <strong>About Me</strong>
-            </p>
-            <p style="font-family: 'Times New Roman', Times, serif">
-              Hi there, I'm
-              <span style="font-family: cursive">Harrison Gao</span>, an Art
-              Freelancer, Guitar Player, Detective Novel Enthusiast, Traveler,
-              and aspiring Software Development Engineer.
-            </p>
-            <p style="font-family: garamond; text-align: center">
-              Currently I'm in...
-            </p>
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                font-size: 18px;
-              "
-            >
-              Computer Science Major & Business Studies Minor @
-              <a
-                href="https://cs.nyu.edu/home/index.html"
-                style="
-                  color: rgba(197, 143, 255, 0.622);
-                  font-family: Garamond;
-                  text-decoration: none;
-                "
-                target="_blank"
-                >New York University.</a
-              >
-            </p>
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                font-size: 18px;
-              "
-            >
-              Research assistant and CSCI-UA student tutor @
-              <a
-                href="https://cims.nyu.edu/dynamic/"
-                style="
-                  color: rgba(245, 151, 151, 0.622);
-                  font-family: Garamond;
-                  text-decoration: none;
-                "
-                target="_blank"
-                >NYU Courant Institution of Mathematics.</a
-              >
-            </p>
-            <p
-              style="
-                font-family: 'Times New Roman', Times, serif;
-                font-size: 18px;
-              "
-            >
-              Milennium Fellow at United Nation's MCN
-              <a
-                href="https://www.millenniumfellows.org/fellow/2024/nyu/haoran-gao"
-                style="
-                  color: rgba(107, 188, 251, 0.623);
-                  font-family: Garamond;
-                  text-decoration: none;
-                "
-                target="_blank"
-                >United Nation Academic Impact.</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- 我的时间显示 -->
-    <section class="time-section">
-      <p>
-        <strong>My Current Time (US Eastern)</strong>
-        <span id="current-time"> Loading...</span>
-      </p>
-    </section>
+      <section class="time-band" aria-label="Current time">
+        <p>
+          Current Time (US Eastern):
+          <span id="current-time">Loading...</span>
+        </p>
+      </section>
 
-    <!-- 横向展示 -->
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <div class="section-wrapper">
-        <p class="highlight-title"><strong>My recent highlights</strong></p>
-        <div class="three-section-container">
-          <div class="section-box">
-            <img src="assets/images/highlights/WangHong.jpeg" alt="Project 1" />
-            <p>
-              2025.3 <br /><br />
-              I feel honord attending Professor Wang's colloquium on her latest
-              paper about Kakeya Conjecture. Although I barely understood the
-              content, I was impressed by the brilliance of fellow
-              mathematicians and enthusiasts here at Courant.
-            </p>
-          </div>
-          <div class="section-box">
-            <img
-              src="assets/images/highlights/horseshoeHandsome.jpeg"
-              alt="Project 2"
-            />
-            <p>
-              2025.1 <br /><br />On my previous trip to the Grand Canyon, I was
-              thrilled by the great view of horseshoe bend. <br />
-              This was one of my <strong>sublime</strong> moments.
-            </p>
-          </div>
-          <div class="section-box">
-            <img
-              src="assets/images/highlights/NYUwelcome.jpeg"
-              alt="Project 3"
-            />
-            <p>
-              2024.8 <br /><br />
-              Being part of NYU Welcome Leader team was one of the brightest
-              move I've taken in college. <br />
-              I met new friends, helped incoming students, and reinforced the
-              "upperclassman" identity. I feel so proud when leading all 3
-              discussion meetings.
-            </p>
-          </div>
+      <section class="panel">
+        <div class="section-head">
+          <h2>Highlights</h2>
+          <p>Recent milestones and moments.</p>
         </div>
-      </div>
-    </section>
-    <!-- 展示1 -->
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p style="font-family: garamond; text-align: center">
-              Research Project: 2024 Presidential Election
-            </p>
-            <p style="font-family: 'Times New Roman', Times, serif">
-              I was part of
-              <a
-                href="https://www.anassebari.com/"
-                style="
-                  color: rgba(179, 250, 214, 0.622);
-                  font-family: 'Times New Roman';
-                  text-decoration: none;
-                "
-                target="_blank"
-                >Professor Bari's</a
-              >
-              predictive analytics lab, working on finding correlation of
-              <strong>merchandise search trend</strong>merchandise search trend
-              and the election outcome. <br />
-              <br />You can read more about this
-              <a
-                href="https://www.nyu.edu/about/news-publications/news/2024/october/yard-signs--hats--and-shirts-online-searches-show-division-in-pr.html"
-                style="
-                  color: rgba(197, 143, 255, 0.622);
-                  font-family: 'Times New Roman';
-                  text-decoration: none;
-                "
-                target="_blank"
-                >here</a
-              >.
-            </p>
-          </div>
-          <img
-            src="assets/images/highlights/meetingSmile.jpg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-    <!-- 展示2 -->
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p style="font-family: garamond; text-align: center">
-              Print-Making: my new hobby
-            </p>
-            <p style="font-family: 'Times New Roman', Times, serif">
-              Starting Spring 2025, I started working on a new art media:
-              printmaking. <br />
-              I love how print makers describe their art lies in every press and
-              release. <br />
-              <br />Check out more of my other arts in the
-              <a
-                href="gallery.html"
-                style="
-                  color: rgba(143, 160, 255, 0.622);
-                  font-family: 'Times New Roman';
-                  text-decoration: none;
-                "
-                target=""
-                >Gallery</a
-              >
-              section.
-            </p>
-          </div>
-          <img
-            src="assets/images/artwork/makingCat.jpeg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
-    <!-- 展示3 -->
-    <section class="flex1 content column" style="margin: 10px 30px 10px 30px">
-      <!-- New flex box -->
-      <div class="content-wrapper">
-        <div class="profile-box" style="margin: 10px 10px; align-items: center">
-          <div
-            class="contentBase display shadow mgt8"
-            style="background-color: rgba(45, 45, 45, 0.95)"
-          >
-            <p style="font-family: garamond; text-align: center">Traveling</p>
-            <p style="font-family: 'Times New Roman', Times, serif">
-              I love traveling, photography, recording my life as a little human
-              on this planet in our Solar system.
-              <br />
-              Especially given the case that I have to stare at my screen when
-              I'm working and studying, I seize every chance to "escape" from
-              tech medias. <br />
-              I'm considering opening a new "blog" page on this website, where I
-              can post my pictures and findings on planet Earth. Let's find out~
-              <br />
-              <br />The picture is a cave that me and my friend Ivan found
-              during our trip to Grand Canyon. Amazing, right?
-            </p>
-          </div>
-          <img
-            src="assets/images/highlights/jump.jpeg"
-            alt="Project Image"
-            style="order: 2"
-          />
-          <!-- /* This puts the image on the right side */  -->
-        </div>
-      </div>
-    </section>
+        <div class="card-grid" id="home-highlights-grid"></div>
+      </section>
 
-    <!-- bottom display area -->
-    <section
-      class="flex1 flex footer base shadow"
-      style="border-radius: 0; height: 100px; justify-content: center"
-      id="contact"
-    >
-      <!-- 底部栏中间区 -->
-      <div
-        class="flex column"
-        style="justify-content: center; align-items: center"
-      >
-        <div class="flex" style="align-self: center; margin-bottom: 10px">
-          <b style="font-size: 15px"
-            >Thank you for visiting. Please feel free to connect via:</b
-          >
+      <section class="panel">
+        <div class="section-head">
+          <h2>Selected Notes</h2>
+          <p>Short updates that introduce work and interests.</p>
         </div>
-        <!-- profile picture + logo -->
-        <div
-          class="flex"
-          style="justify-content: center; align-items: center; margin: 10px"
-        >
-          <a
-            style="display: inline-block"
-            href="https://www.linkedin.com/in/harrisongao/"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/linkedin.png"
-              alt="a"
-            />
-          </a>
-          <a
-            style="display: inline-block"
-            href="https://github.com/HTK-G"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/github.png"
-              alt="a"
-            />
-          </a>
-          <a
-            style="display: inline-block"
-            href="https://www.instagram.com/htk_harrison/"
-            target="_blank"
-          >
-            <img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/ins.png"
-              alt="a"
-            />
-          </a>
-          <a style="display: inline-block" href="mailto:hg2655@nyu.edu"
-            ><img
-              class="flex topIcon"
-              style="width: 25px; align-self: center; margin: 3px"
-              src="assets/images/icons/email.svg"
-              alt="email"
-          /></a>
-        </div>
-        <div><i>Copyright ©2025 HaoranGao</i></div>
-      </div>
-    </section>
+        <div class="stack-list" id="home-featured-list"></div>
+      </section>
 
-    <!-- Add this script at the end of the body tag -->
+      <section class="panel" id="journal">
+        <div class="section-head">
+          <h2>Journal Snapshot</h2>
+          <p>Scrollable by design so you can extend entries over time.</p>
+        </div>
+        <div class="journal-scroll" id="journal-entries"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer glass-panel" id="contact">
+      <p class="footer-title">Let's connect</p>
+      <div class="social-links" id="social-links"></div>
+      <p class="copyright">Copyright © <span id="copyright-year"></span> Haoran Gao</p>
+    </footer>
   </body>
 </html>
